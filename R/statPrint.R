@@ -334,7 +334,9 @@ return(all_statistics)
 #' @export
 print.akClustr <-
   function(clustr, ...){
-    statPrint(clustr = clustr$memberships,
+    out <-
+      statPrint(clustr = clustr$memberships,
               traj = clustr$traj,
               ...)
+    print(out)
   }

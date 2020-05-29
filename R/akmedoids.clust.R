@@ -228,7 +228,6 @@ if(method=="linear"){
       solution_ <- list()
       solution_[[1]] <- result_[[1]]
       final_result <- list(memberships=solution_[[1]])
-      return(final_result)
     }
 
     #if a range of value is provided
@@ -305,9 +304,20 @@ if(method=="linear"){
         flush.console()
         dev.new(width=3, height=3)
         print(plt)
-        return(final_result)
+
         }
     }
   }
 }
+
+#S3 methods for final result
+
+final_result$traj <- traj
+class(final_result) <-
+  c(
+    class(final_result),
+    'akClustr'
+  )
+
+return(final_result)
 }
