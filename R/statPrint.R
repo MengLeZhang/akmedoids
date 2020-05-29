@@ -330,4 +330,11 @@ all_statistics <- list(descriptiveStats = desc_Stats,
 return(all_statistics)
 }
 
-
+#'S3 print method
+#' @export
+print.akClustr <-
+  function(clustr, ...){
+    statPrint(clustr = clustr$memberships,
+              traj = clustr$traj,
+              ...)
+  }
